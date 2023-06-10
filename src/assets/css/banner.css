@@ -1,0 +1,26 @@
+@media only screen and (min-width: 1200px) {
+    
+    .inputLocation{
+        width: 383px ;
+    }
+    
+}
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+    
+    .inputLocation{
+        width: 350px ;
+    }
+    
+}
+@media only screen and (max-width: 991px) {
+
+    .inputSchedule{
+        flex-direction: column;
+    }
+}
+.inputSchedule{
+    display: flex;
+}
+/* .inputLocation{
+    width: 383px ;
+} */
