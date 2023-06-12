@@ -13,7 +13,7 @@ import {
   Form,
   Modal,
 } from "react-bootstrap";
-import "../assets/css/banner.css";
+import "../assets/css/Banner.css";
 
 function Banner() {
   const [showPassenger, setShowPassenger] = useState(false);
@@ -111,7 +111,7 @@ function Banner() {
         <Card.Header className="border-0 bg-transparent">
           <b>
             Pilih Jadwal Penerbangan spesial di
-            <span style={{ color: "#7126B5" }}> Tiketku!</span>
+            <span style={{ color: "#7126B5" }}> AirTix!</span>
           </b>
         </Card.Header>
         <Card.Body>
