@@ -18,18 +18,59 @@ import "../assets/css/Banner.css";
 function Banner() {
   const [showPassenger, setShowPassenger] = useState(false);
   const [showSeatClass, setShowSeatClass] = useState(false);
-  const [count, setCount] = useState(0);
+  const [valueFrom, setValueFrom] = useState("");
+  const [valueTo, setValueTo] = useState("");
+  const [valueDewasa, setValueDewasa] = useState("");
+  const [valueAnak, setValueAnak] = useState("");
+  const [valueBayi, setValueBayi] = useState("");
+  const [isEnabled, setIsEnabled] = useState(false);
+  const [sum, setSum] = useState("");
 
-  const handleOnKurang = (event) => {
-    setCount(count - 1);
+  const handleSumClick = () => {
+    const num1 = parseFloat(valueDewasa);
+    const num2 = parseFloat(valueAnak);
+    const num3 = parseFloat(valueBayi);
+
+    if (!isNaN(num1) && !isNaN(num2) && !isNaN(num3)) {
+      const result = num1 + num2 + num3;
+      setSum(result.toString());
+    }
   };
-  const handleOnTambah = (event) => {
-    setCount(count + 1);
-  };
+
   const handleClosePassenger = () => setShowPassenger(false);
   const handleShowPassenger = () => setShowPassenger(true);
   const handleCloseSeatClass = () => setShowSeatClass(false);
   const handleShowSeatClass = () => setShowSeatClass(true);
+  const handleSwitchChange = () => {
+    setIsEnabled(!isEnabled);
+  };
+  const handleChangeValueDewasa = (event) => {
+    setValueDewasa(event.target.value);
+  };
+  const handleChangeValueAnak = (event) => {
+    setValueAnak(event.target.value);
+  };
+  const handleChangeValueBayi = (event) => {
+    setValueBayi(event.target.value);
+  };
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
+
+    if (name === "input1") {
+      setValueFrom(value);
+    } else if (name === "input2") {
+      setValueTo(value);
+    }
+  };
+  const handleSwitchClick = () => {
+    setValueFrom(valueTo);
+    setValueTo(valueFrom);
+  };
+
+  const handleSaveChanges = () => {
+    handleClosePassenger();
+    handleSumClick();
+  };
   return (
     <Container>
       <Row className="d-flex p-3">
@@ -85,6 +126,9 @@ function Banner() {
                   <Form.Label>From</Form.Label>
                 </Form.Group>
                 <Form.Control
+                  name="input1"
+                  value={valueFrom}
+                  onChange={handleInputChange}
                   type="text"
                   placeholder="Jakarta(JKTA)"
                   className="inputLocation"
@@ -94,6 +138,7 @@ function Banner() {
                 <Button
                   style={{ background: "#7126B5", border: "0" }}
                   className="d-flex align-items-center justify-content-between border-0"
+                  onClick={handleSwitchClick}
                 >
                   <VscArrowSwap />
                 </Button>
@@ -108,6 +153,9 @@ function Banner() {
                   <Form.Label>To</Form.Label>
                 </Form.Group>
                 <Form.Control
+                  name="input2"
+                  value={valueTo}
+                  onChange={handleInputChange}
                   type="text"
                   placeholder="Melbourne(MLB)"
                   className="inputLocation"
@@ -127,15 +175,24 @@ function Banner() {
                 <Form.Group>
                   <Form.Label>Departure</Form.Label>
 
-                  <Form.Control type="date" placeholder="14/05/2023" />
+                  <Form.Control type="date" />
                 </Form.Group>
                 <Form.Group>
                   <Form.Label>Return</Form.Label>
 
-                  <Form.Control type="date" placeholder="14/05/2023" />
+                  <Form.Control
+                    type="date"
+                    disabled={!isEnabled}
+                    placeholder={isEnabled ? "Input enabled" : "Input disabled"}
+                  />
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="formBasicCheckbox">
-                  <Form.Check type="switch" label="" />
+                  <Form.Check
+                    type="switch"
+                    label=""
+                    checked={isEnabled}
+                    onChange={handleSwitchChange}
+                  />
                 </Form.Group>
               </Form.Group>
 
@@ -152,8 +209,9 @@ function Banner() {
 
                   <Form.Control
                     type="text"
-                    placeholder="Penumpang"
+                    placeholder={`${sum} Passengers `}
                     onClick={handleShowPassenger}
+                    readOnly="readonly"
                   />
                 </Form.Group>
                 <Form.Group>
@@ -162,6 +220,7 @@ function Banner() {
                     type="text"
                     placeholder="Class"
                     onClick={handleShowSeatClass}
+                    readOnly="readonly"
                   />
                 </Form.Group>
               </Form.Group>
@@ -186,15 +245,14 @@ function Banner() {
                 </Form.Group>
                 <Form.Group>
                   <Form.Group className="d-flex">
-                    <Button onClick={handleOnKurang}>-</Button>
                     <Form.Control
-                      type="text"
+                      type="number"
                       placeholder="0"
                       autoFocus
-                      value={count}
-                      // onChange={count}
+                      value={valueDewasa}
+                      onChange={handleChangeValueDewasa}
+                      min="0"
                     />
-                    <Button onClick={handleOnTambah}>+</Button>
                   </Form.Group>
                 </Form.Group>
               </Form.Group>
@@ -210,14 +268,14 @@ function Banner() {
                 </Form.Group>
                 <Form.Group>
                   <Form.Group className="d-flex">
-                    <Button onClick={handleOnKurang}>-</Button>
                     <Form.Control
-                      type="text"
+                      type="number"
                       placeholder="0"
                       autoFocus
-                      value={count}
+                      value={valueAnak}
+                      onChange={handleChangeValueAnak}
+                      min="0"
                     />
-                    <Button onClick={handleOnTambah}>+</Button>
                   </Form.Group>
                 </Form.Group>
               </Form.Group>
@@ -231,21 +289,21 @@ function Banner() {
                 </Form.Group>
                 <Form.Group>
                   <Form.Group className="d-flex">
-                    <Button onClick={handleOnKurang}>-</Button>
                     <Form.Control
-                      type="text"
+                      type="number"
                       placeholder="0"
                       autoFocus
-                      value={count}
+                      value={valueBayi}
+                      onChange={handleChangeValueBayi}
+                      min="0"
                     />
-                    <Button onClick={handleOnTambah}>+</Button>
                   </Form.Group>
                 </Form.Group>
               </Form.Group>
             </Form>
           </Modal.Body>
           <Modal.Footer>
-            <Button variant="primary" onClick={handleClosePassenger}>
+            <Button variant="primary" onClick={handleSaveChanges}>
               Save Changes
             </Button>
           </Modal.Footer>
