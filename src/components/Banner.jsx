@@ -4,6 +4,7 @@ import { TbPlaneDeparture } from "react-icons/tb";
 import { TbPlaneArrival } from "react-icons/tb";
 import { MdOutlineDateRange } from "react-icons/md";
 import { MdOutlineAirlineSeatReclineNormal } from "react-icons/md";
+
 import {
   Container,
   Row,
@@ -25,6 +26,12 @@ function Banner() {
   const [valueBayi, setValueBayi] = useState("");
   const [isEnabled, setIsEnabled] = useState(false);
   const [sum, setSum] = useState("");
+  // const [selectedDate, setSelectedDate] = useState("");
+
+  // const handleDateChange = (event) => {
+  //   const { value } = event.target;
+  //   setSelectedDate(value);
+  // };
 
   const handleSumClick = () => {
     const num1 = parseFloat(valueDewasa);
@@ -175,7 +182,12 @@ function Banner() {
                 <Form.Group>
                   <Form.Label>Departure</Form.Label>
 
-                  <Form.Control type="date" />
+                  <Form.Control
+                    type="date"
+                    // value={selectedDate}
+                    // onChange={handleDateChange}
+                  />
+                  {/* <p>Selected Date: {selectedDate}</p> */}
                 </Form.Group>
                 <Form.Group>
                   <Form.Label>Return</Form.Label>
