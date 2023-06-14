@@ -1,0 +1,17 @@
+.text-colorr {
+  font-weight: bold;
+  text-decoration: none;
+  color: #7126b5;
+}
+
+.text-color {
+  color: #7126b5 !important;
+}
+
+.button {
+  border: #7126b5 !important;
+  background-color: #7126b5 !important;
+  border-radius: 15px;
+  height: 50px;
+  color: white;
+}
