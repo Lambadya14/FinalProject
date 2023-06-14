@@ -14,7 +14,7 @@ import {
   Form,
   Modal,
 } from "react-bootstrap";
-import "../assets/css/Banner.css";
+import "../assets/css/banner.css";
 
 function Banner() {
   const [showPassenger, setShowPassenger] = useState(false);

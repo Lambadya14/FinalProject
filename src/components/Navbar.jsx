@@ -1,5 +1,5 @@
 import React from "react";
-import { Navbar, Nav, Container, Button } from "react-bootstrap";
+import { Navbar, Nav, Container, Button, Form } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 function Homepage() {
@@ -19,6 +19,17 @@ function Homepage() {
               }}
             />
           </Navbar.Brand>
+          <Nav className="w-50">
+          <Form className="form-search w-100 mx-auto">
+            <Form.Control
+              type="search"
+              placeholder="Cari disini .."
+              aria-label="Search"
+            />
+          </Form>
+          </Nav>
+
+
           <Nav className="d-flex justify-content-end gap-2">
             <Button
               as={Link}
