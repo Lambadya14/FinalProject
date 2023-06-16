@@ -6,7 +6,7 @@ import Navbar from "../components/Navbar";
 import "../assets/css/Verifikasi.css";
 
 const Verifikasi = () => {
-  const handleCodeOTPChange = (e) => {};
+  const handleChangeInput = (e) => {};
   return (
     <>
       <Navbar />
@@ -25,11 +25,11 @@ const Verifikasi = () => {
               </Form.Text>
               <div className="mt-4 mb-5 text-center">
                 <Form.Control
-                  size="lg"
-                  type="email"
-                  maxLength="6"
-                  pattern="\d*"
-                  onChange={handleCodeOTPChange}
+                  type="number"
+                  typeof="char"
+                  onChange={handleChangeInput}
+                  min={1}
+                  max={6}
                 />
               </div>
               <div className="ms-2 text-center">

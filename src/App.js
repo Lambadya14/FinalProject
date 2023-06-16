@@ -7,6 +7,7 @@ import ResetPassword from "./pages/ResetPassword";
 import Riwayat from "./pages/Riwayat";
 import Verifikasi from "./pages/Verifikasi";
 import Checkout from "./pages/Checkout";
+import Payment from "./pages/Payment";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Route path="Riwayat" element={<Riwayat />} />
         <Route path="Verifikasi" element={<Verifikasi />} />
         <Route path="Checkout" element={<Checkout />} />
+        <Route path="Payment" element={<Payment />} />
       </Routes>
     </BrowserRouter>
   );

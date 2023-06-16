@@ -1,43 +1,45 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import DataPemesan from "../components/DataPemesanan";
-import DataPenumpang from "../components/DataPenumpang";
-import Matahari from "../assets/img/Matahari.png";
 import Navbar from "../components/Navbar";
-import "../assets/css/Checkout.css";
+import Matahari from "../assets/img/Matahari.png";
+import payment from "../assets/img/Payment.png";
+import "../assets/css/Payment.css";
+import "bootstrap/dist/css/bootstrap.min.css";
 import {
+  Accordion,
   Alert,
   Breadcrumb,
   Button,
+  Card,
   Col,
   Container,
+  Form,
   Row,
 } from "react-bootstrap";
 
-const Checkout = () => {
+const Payment = () => {
   return (
     <>
       <Navbar />
-      <Container className="bg warning mt-5">
+      <Container className="mt-5">
         <Row>
           <Col>
             <Breadcrumb>
               <Breadcrumb.Item active>
                 <Link
+                  to="/Checkout"
                   className="fw-bold"
                   style={{ textDecoration: "none", color: "#7126B5" }}
                 >
                   Isi Data Diri
                 </Link>
               </Breadcrumb.Item>
-              <Breadcrumb.Item active>
-                <Link
-                  to="/Payment"
-                  className="fw-bold"
-                  style={{ textDecoration: "none", color: "#7126B5" }}
-                >
-                  Bayar
-                </Link>
+              <Breadcrumb.Item
+                active
+                className="fw-bold"
+                style={{ color: "#7126B5" }}
+              >
+                Bayar
               </Breadcrumb.Item>
               <Breadcrumb.Item active>
                 <Link
@@ -55,24 +57,87 @@ const Checkout = () => {
             className="text-center text-light border-0"
             style={{ background: "#FF0000", borderRadius: "10px" }}
           >
-            Selesaikan dalam 00:15:00
+            Selesaikan Pembayaran sampai 10 Maret 2023 12:00
           </Alert>
         </Row>
+        <br />
+        <br />
         <Row className="gap-4">
           <Col>
-            <Row className="border py-4 px-4">
-              <DataPemesan />
-            </Row>
-            <Row className="border py-4 px-4 mt-3">
-              <DataPenumpang />
-            </Row>
-            <Button type="submit" className="w-100 my-3 button-save">
-              Simpan
+            <Accordion className="mb-3">
+              <Accordion.Item eventKey="0">
+                <button
+                  class="text-light accordion-button collapsed"
+                  style={{ background: "#3C3C3C" }}
+                >
+                  Gopay
+                </button>
+              </Accordion.Item>
+            </Accordion>
+            <Accordion className="mb-3">
+              <Accordion.Item eventKey="1">
+                <button
+                  class="text-light accordion-button collapsed"
+                  style={{ background: "#3C3C3C" }}
+                  type="button"
+                >
+                  Virtual Account
+                </button>
+              </Accordion.Item>
+            </Accordion>
+            <Accordion
+              defaultActiveKey={["2"]}
+              alwaysOpen
+              className="panel-heading border-4 mb-3"
+            >
+              <Accordion.Item eventKey="2">
+                <Accordion.Header>Credit Card</Accordion.Header>
+                <Accordion.Body>
+                  <Card className="panel-default border-0">
+                    <Card.Img variant="top" src={payment} />
+                    <Card.Body>
+                      <Form.Group className="mb-3">
+                        <Form.Label className="fw-bold">Card number</Form.Label>
+                        <Form.Control
+                          type="text"
+                          placeholder="4480 0000 0000 0000"
+                        />
+                      </Form.Group>
+
+                      <Form.Group className="mb-3">
+                        <Form.Label className="fw-bold">
+                          Card holder name
+                        </Form.Label>
+                        <Form.Control type="text" placeholder="Raect" />
+                      </Form.Group>
+
+                      <div className="d-flex">
+                        <Form.Group className="mb-3">
+                          <Form.Label className="fw-bold">CVV</Form.Label>
+                          <Form.Control type="text" placeholder="000" />
+                        </Form.Group>
+
+                        <Form.Group className="mb-3">
+                          <Form.Label className="fw-bold">
+                            Expiry date
+                          </Form.Label>
+                          <Form.Control type="date" />
+                        </Form.Group>
+                      </div>
+                    </Card.Body>
+                  </Card>
+                </Accordion.Body>
+              </Accordion.Item>
+            </Accordion>
+            <Button type="submit" className="pay w-100">
+              Bayar
             </Button>
           </Col>
-          <Col>
+          <Col className="mb-5">
             <div className="mt-3">
-              <h5 className="fw-bold">Detail Penerbangan</h5>
+              <h5 className="fw-bold" style={{ color: "#7126B5" }}>
+                Booking Code: 6723y2GHK
+              </h5>
               <div className="d-flex justify-content-between align-items-center">
                 <h5 className="fw-bold">07:00</h5>
                 <h6 className="fw-bold" style={{ color: "#7126B5" }}>
@@ -85,7 +150,7 @@ const Checkout = () => {
 
             <hr />
 
-            <Row className="d-flex align-items-center">
+            <Row>
               <Col md={1}>
                 <img src={Matahari} alt="" />
               </Col>
@@ -101,7 +166,7 @@ const Checkout = () => {
 
             <hr />
 
-            <div>
+            <div className="div">
               <div className="d-flex justify-content-between align-items-center">
                 <h5 className="fw-bold">11:00</h5>
                 <h6 className="fw-bold" style={{ color: "#7126B5" }}>
@@ -133,15 +198,11 @@ const Checkout = () => {
             <hr />
 
             <div className="d-flex justify-content-between align-items-center">
-              <h5 className="fw-bold txt-primary">Total</h5>
+              <h5 className="fw-bold">Total</h5>
               <h5 className="fw-bold" style={{ color: "#7126B5" }}>
                 IDR 9.850.000
               </h5>
             </div>
-            <br />
-            <button type="submit" className="w-100 pay">
-              Lanjut Bayar
-            </button>
           </Col>
         </Row>
       </Container>
@@ -149,4 +210,4 @@ const Checkout = () => {
   );
 };
 
-export default Checkout;
+export default Payment;

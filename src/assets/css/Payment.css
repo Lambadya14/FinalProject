@@ -1,0 +1,11 @@
+.heading {
+  background-color: black;
+}
+
+.pay {
+  border: #7126b5 !important;
+  background-color: #7126b5 !important;
+  border-radius: 10px;
+  height: 50px;
+  color: white;
+}

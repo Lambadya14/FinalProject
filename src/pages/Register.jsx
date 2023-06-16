@@ -1,10 +1,14 @@
 import React, { useState } from "react";
-import { Col, Container, Form, Row } from "react-bootstrap";
+import { Col, Container, Form, Row, InputGroup } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import { BsFillEyeSlashFill, BsFillEyeFill } from "react-icons/bs";
 import "../assets/css/Register.css";
 
 const Register = () => {
-  const [] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
+  };
 
   return (
     <Container fluid className="vh-100">
@@ -51,10 +55,16 @@ const Register = () => {
               </Form.Group>
               <Form.Group className="mb-5">
                 <Form.Label>Buat Password</Form.Label>
-                <Form.Control
-                  placeholder="Buat Password"
-                  style={{ borderRadius: "15px", height: "50px" }}
-                />
+                <InputGroup className="mb-3">
+                  <Form.Control
+                    type="password"
+                    placeholder="Buat Password"
+                    style={{ borderRadius: "15px", height: "50px" }}
+                  />
+                  <InputGroup.Text onClick={togglePasswordVisibility}>
+                    {showPassword ? <BsFillEyeSlashFill /> : <BsFillEyeFill />}
+                  </InputGroup.Text>
+                </InputGroup>
               </Form.Group>
               <button type="submit" className="register w-100">
                 Register
