@@ -1,10 +1,17 @@
 import React, { useState } from "react";
-import { Col, Container, Form, Row } from "react-bootstrap";
+import { Col, Container, Form, Row, InputGroup } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import { BsFillEyeSlashFill, BsFillEyeFill } from "react-icons/bs";
 import "../assets/css/Login.css";
 
 const Login = () => {
-  const [] = useState(false);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const [showPassword, setShowPassword] = useState(false);
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
+  };
 
   return (
     <Container fluid className="vh-100">
@@ -29,6 +36,8 @@ const Login = () => {
                 <Form.Label>Email/No Telepon</Form.Label>
                 <Form.Control
                   type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
                   placeholder="Example: react@gmail.com"
                   style={{ borderRadius: "15px", height: "50px" }}
                 />
@@ -41,11 +50,18 @@ const Login = () => {
                     Lupa Kata Sandi
                   </Link>
                 </div>
-                <Form.Control
-                  type="password"
-                  placeholder="Masukkan Password"
-                  style={{ borderRadius: "15px", height: "50px" }}
-                />
+                <InputGroup className="mb-3">
+                  <Form.Control
+                    type={showPassword ? "text" : "password"}
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    placeholder="Masukkan Password"
+                    style={{ borderRadius: "15px", height: "50px" }}
+                  />
+                  <InputGroup.Text onClick={togglePasswordVisibility}>
+                    {showPassword ? <BsFillEyeSlashFill /> : <BsFillEyeFill />}
+                  </InputGroup.Text>
+                </InputGroup>
               </Form.Group>
               <button type="submit" className="login w-100">
                 Login
