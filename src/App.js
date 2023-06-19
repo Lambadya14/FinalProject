@@ -12,6 +12,7 @@ import NoTokenAccess from "./components/NoTokenAccess";
 import { Provider } from "react-redux";
 import { ToastContainer } from "react-toastify";
 import store from "./redux/store";
+import CariPenerbangan from "./pages/CariPenerbangan";
 
 function App() {
   return (
@@ -33,6 +34,7 @@ function App() {
           <Route path="Verifikasi" element={<Verifikasi />} />
           <Route path="Checkout" element={<Checkout />} />
           <Route path="Payment" element={<Payment />} />
+          <Route path="CariPenerbangan" element={<CariPenerbangan />} />
         </Routes>
         <ToastContainer theme="colored" />
       </BrowserRouter>

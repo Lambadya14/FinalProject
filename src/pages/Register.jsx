@@ -90,7 +90,6 @@ const Register = () => {
                     type={showPassword ? "text" : "password"}
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
-                    placeholder="Buat Password"
                     style={{ borderRadius: "15px", height: "50px" }}
                   />
                   <InputGroup.Text onClick={togglePasswordVisibility}>

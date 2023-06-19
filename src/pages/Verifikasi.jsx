@@ -13,6 +13,8 @@ const OTPVerification = () => {
     setOTP(event.target.value);
   };
 
+const Verifikasi = () => {
+  const handleChangeInput = (e) => {};
   return (
     <>
       <Navbar />
@@ -38,6 +40,7 @@ const OTPVerification = () => {
                   value={"otp"}
                   onChange={handleOTPChange}
                   maxLength={6}
+                  
                 />
               </div>
               <div className="ms-2 text-center">

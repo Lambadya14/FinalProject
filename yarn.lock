@@ -2560,6 +2560,11 @@ accepts@~1.3.4, accepts@~1.3.5, accepts@~1.3.8:
     mime-types "~2.1.34"
     negotiator "0.6.3"
 
+accordion@^3.0.2:
+  version "3.0.2"
+  resolved "https://registry.npmjs.org/accordion/-/accordion-3.0.2.tgz"
+  integrity sha512-jbQfFaw+57OBwPt7qSNHuW+RA8smmRwkWRS1Ozh6K/QxUspBgBV/LpdSzlY7vee8TomS6j3D33B9rIeH1qMwsA==
+
 acorn-globals@^6.0.0:
   version "6.0.0"
   resolved "https://registry.npmjs.org/acorn-globals/-/acorn-globals-6.0.0.tgz"
@@ -6322,6 +6327,11 @@ lines-and-columns@^1.1.6:
   version "1.2.4"
   resolved "https://registry.npmjs.org/lines-and-columns/-/lines-and-columns-1.2.4.tgz"
   integrity sha512-7ylylesZQ/PV29jhEDl3Ufjo6ZX7gCqJr5F7PKrqc93v7fzSymt1BpwEU8nAUXs8qzzvqhbjhK5QZg6Mt/HkBg==
+
+link@^1.5.1:
+  version "1.5.1"
+  resolved "https://registry.npmjs.org/link/-/link-1.5.1.tgz"
+  integrity sha512-80GBz0JfARAPedegdwtMHJ4tiPCQNqi9UZ0womJ5YU6Zw/Jc8JRji5cnhqkxGTTFAPLs1HftUDf81qUQg0aY0Q==
 
 loader-runner@^4.2.0:
   version "4.3.0"
