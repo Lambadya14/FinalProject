@@ -36,11 +36,13 @@ const Verifikasi = () => {
               </Form.Text>
               <div className="mt-4 mb-5 text-center">
                 <Form.Control
+
                   type="text"
                   value={"otp"}
                   onChange={handleOTPChange}
                   maxLength={6}
-                  
+                 
+
                 />
               </div>
               <div className="ms-2 text-center">

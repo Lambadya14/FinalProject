@@ -8,6 +8,7 @@ import Riwayat from "./pages/Riwayat";
 import Verifikasi from "./pages/Verifikasi";
 import Checkout from "./pages/Checkout";
 import Payment from "./pages/Payment";
+
 import NoTokenAccess from "./components/NoTokenAccess";
 import { Provider } from "react-redux";
 import { ToastContainer } from "react-toastify";
@@ -16,6 +17,7 @@ import CariPenerbangan from "./pages/CariPenerbangan";
 
 function App() {
   return (
+
     <Provider store={store}>
       <BrowserRouter>
         <Routes>

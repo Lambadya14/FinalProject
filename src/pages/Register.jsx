@@ -1,13 +1,16 @@
 import React, { useState } from "react";
 import { Col, Container, Form, Row, InputGroup } from "react-bootstrap";
 import { Link } from "react-router-dom";
+
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { register } from "../redux/actions/authActions";
+
 import { BsFillEyeSlashFill, BsFillEyeFill } from "react-icons/bs";
 import "../assets/css/Register.css";
 
 const Register = () => {
+
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -21,6 +24,7 @@ const Register = () => {
     setShowPassword(!showPassword);
   };
 
+
   const onSubmit = async (e) => {
     e.preventDefault();
 
@@ -33,6 +37,7 @@ const Register = () => {
 
     dispatch(register(data, navigate));
   };
+
 
   return (
     <Container fluid className="vh-100">
@@ -87,9 +92,13 @@ const Register = () => {
                 <Form.Label>Buat Password</Form.Label>
                 <InputGroup className="mb-3">
                   <Form.Control
+
                     type={showPassword ? "text" : "password"}
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
+                 
+                    placeholder="Buat Password"
+
                     style={{ borderRadius: "15px", height: "50px" }}
                   />
                   <InputGroup.Text onClick={togglePasswordVisibility}>
