@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import { Col, Container, Form, Row, InputGroup } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { login } from "../redux/actions/authActions";
 import { BsFillEyeSlashFill, BsFillEyeFill } from "react-icons/bs";
 import "../assets/css/Login.css";
 
@@ -8,14 +11,28 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
   const [showPassword, setShowPassword] = useState(false);
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
   };
 
+  const onSubmit = async (e) => {
+    e.preventDefault();
+
+    let data = JSON.stringify({
+      email,
+      password,
+    });
+
+    dispatch(login(data, navigate));
+  };
+
   return (
     <Container fluid className="vh-100">
-      <Row className="h-100">
+      <Row className="h-100" onSubmit={onSubmit}>
         <Col className="bg-color d-flex justify-content-center align-items-center">
           <img
             src={require("../assets/img/AirTix.svg").default}
