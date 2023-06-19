@@ -7,14 +7,14 @@ import "../assets/css/Verifikasi.css";
 
 const OTPVerification = () => {
   const [otp, setOTP] = useState("");
-  const [isVerified, setIsVerified] = useState(false);
+  // const [isVerified, setIsVerified] = useState(false);
 
   const handleOTPChange = (event) => {
     setOTP(event.target.value);
   };
 
   const Verifikasi = () => {
-    const handleChangeInput = (e) => {};
+    // const handleChangeInput = (e) => {};
     return (
       <>
         <Navbar />
@@ -37,7 +37,7 @@ const OTPVerification = () => {
                 <div className="mt-4 mb-5 text-center">
                   <Form.Control
                     type="text"
-                    value={"otp"}
+                    value={otp}
                     onChange={handleOTPChange}
                     maxLength={6}
                   />
