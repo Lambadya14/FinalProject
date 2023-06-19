@@ -1,0 +1,46 @@
+.bg-purple {
+  background-color: #a06ece;
+  transition: background-color 0.3s ease;
+}
+
+.bg-green {
+  background-color: #73ca5c;
+}
+
+.button-schedule button:hover {
+  background-color: #a06ece;
+  color: #fff;
+  transition: background-color 0.3s ease;
+}
+.button-schedule button {
+  transition: background-color 0.3s ease;
+}
+
+.bg-detail {
+  background-color: #fff;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.15);
+}
+
+.header-detail {
+  width: 200px;
+}
+
+.fs-12 {
+  font-size: 12px;
+}
+
+.date {
+  margin-top: -2px;
+}
+
+.fs-14 {
+  font-size: 14px;
+}
+
+.fs-16 {
+  font-size: 16px;
+}
+
+.text-purple {
+  color: #7126b5;
+}

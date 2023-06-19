@@ -8,6 +8,7 @@ import Riwayat from "./pages/Riwayat";
 import Verifikasi from "./pages/Verifikasi";
 import Checkout from "./pages/Checkout";
 import Payment from "./pages/Payment";
+import CariPenerbangan from "./pages/CariPenerbangan";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route path="Login" element={<Login />} />
         <Route path="Register" element={<Register />} />
         <Route path="ResetPassword" element={<ResetPassword />} />
+        <Route path="CariPenerbangan" element={<CariPenerbangan/>} />
         <Route path="Riwayat" element={<Riwayat />} />
         <Route path="Verifikasi" element={<Verifikasi />} />
         <Route path="Checkout" element={<Checkout />} />
