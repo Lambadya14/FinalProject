@@ -32,7 +32,7 @@ const ResultSearch = () => {
                   <img src="../assets/img/baggage.svg" alt="" />
                 </div>
                 <div className="d-flex flex-column">
-                  <h5 className="text-purple fw-semibold">IDR 4.950.000</h5>
+                  <h5 className="text-purple fw-semibold">IDR 950.000</h5>
                   <button className="bg-purple rounded-4 py-2 text-white fw-semibold">
                     Pilih
                   </button>
