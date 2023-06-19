@@ -5,6 +5,14 @@ import { IoArrowBack } from "react-icons/io5";
 import Navbar from "../components/Navbar";
 import "../assets/css/Verifikasi.css";
 
+const OTPVerification = () => {
+  const [otp, setOTP] = useState("");
+  const [isVerified, setIsVerified] = useState(false);
+
+  const handleOTPChange = (event) => {
+    setOTP(event.target.value);
+  };
+
 const Verifikasi = () => {
   const handleChangeInput = (e) => {};
   return (
@@ -17,7 +25,10 @@ const Verifikasi = () => {
           </p>
         </Link>
         <h2 className="text-center mb-5 fw-bold">Masukkan OTP</h2>
-        <div className="d-flex flex-row justify-content-center mt-2">
+        <div
+          className="d-flex flex-row justify-content-center mt-2"
+          onSubmit={onSubmit}
+        >
           <Form>
             <Form.Group className="mb-3" controlId="formBasicEmail">
               <Form.Text>
@@ -25,11 +36,13 @@ const Verifikasi = () => {
               </Form.Text>
               <div className="mt-4 mb-5 text-center">
                 <Form.Control
-                  type="number"
-                  typeof="char"
-                  onChange={handleChangeInput}
-                  min={1}
-                  max={6}
+
+                  type="text"
+                  value={"otp"}
+                  onChange={handleOTPChange}
+                  maxLength={6}
+                 
+
                 />
               </div>
               <div className="ms-2 text-center">
@@ -48,4 +61,4 @@ const Verifikasi = () => {
   );
 };
 
-export default Verifikasi;
+export default OTPVerification;
